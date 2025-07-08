@@ -1,0 +1,60 @@
+// Variables
+$primary-color: #155090;
+$secondary-color: #103359;
+$text-dark: #212529;
+$text-secondary: #6c757d;
+$light-bg: #f1f3f5;
+$card-bg-1: #e9ecef;
+$card-bg-2: #dbe2e6;
+$card-bg-3: #c8d6e5;
+$divider-color: #dee2e6;
+
+// Layout fix for fixed-top navbar
+body {
+  padding-top: 70px; // ajusta a la altura real de tu navbar
+}
+
+// Navbar
+.navbar {
+  &.custom-font {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+  }
+
+  .navbar-logo {
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  .custom-link {
+    color: $text-secondary !important;
+    transition: color 0.3s;
+    font-size: 1rem;
+    font-weight: 500;
+
+    &:hover {
+      color: $text-dark !important;
+    }
+  }
+
+  .custom-btn {
+    background: linear-gradient(to bottom, $primary-color, $secondary-color);
+    color: white !important;
+    border: none;
+    padding: 0.3rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 0;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  .custom-vr {
+    width: 1px;
+    height: 40px;
+    background-color: $divider-color;
+  }
+}

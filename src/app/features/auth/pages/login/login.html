@@ -1,0 +1,52 @@
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-logo-container">
+            <a href="/">
+                <img src="necoArcBase.png" alt="Neco Arc" class="auth-logo" />
+            </a>
+        </div>
+
+        <h2 class="auth-title">Iniciar Sesión</h2>
+
+        <form class="auth-form" [formGroup]="formLogin" (ngSubmit)="loginFn()" novalidate>
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" class="form-input" placeholder="correo@email.com"
+                    formControlName="email" />
+                @if (email?.invalid && (email?.dirty || email?.touched)) {
+                @if(email?.hasError('required')){
+                <span>- El campo es obligatorio*</span>
+                }
+                @if (email?.hasError('email')) {
+                    <span>- El campo no tiene el formato correcto*</span>
+                }
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" class="form-input" placeholder="•••••••••••••"
+                    formControlName="password" />
+                @if (password?.invalid && (password?.dirty || password?.touched)) {
+                @if (password?.hasError('required')) {
+                <span>- El campo es obligatorio*</span>
+                }
+                @if (password?.hasError('minlength')) {
+                        <span>- El campo debe tener por lo menos 6 caracteres*</span>
+                    }
+                }
+            </div>
+            <div>
+                @if(errorMsg()){
+                <span>{{errorMsg()}}</span>
+                }
+            </div>
+            <button type="submit" class="auth-button" [disabled]="formLogin.invalid">Ingresar</button>
+
+        </form>
+
+        <div class="auth-links">
+            <a class="auth-link" routerLink="/register">¿No tienes cuenta? Regístrate</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-white shadow fixed-top custom-font">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" routerLink="/inicio">
+            <img src="logo" alt="Logo" class="navbar-logo"/>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="navbarNav" class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
+                <li class="nav-item d-flex align-items-center">
+                    <a class="nav-link custom-link" routerLink="/inicio">Inicio</a>
+                    <div class="vr custom-vr d-none d-lg-block"></div>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a class="nav-link custom-link" routerLink="/locales">Locales</a>
+                    <div class="vr custom-vr d-none d-lg-block"></div>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a class="nav-link custom-link" routerLink="/nosotros">Nosotros</a>
+                    <div class="vr custom-vr d-none d-lg-block"></div>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a class="nav-link custom-link" routerLink="/contacto">Contactanos</a>
+                    <div class="vr custom-vr d-none d-lg-block"></div>
+                </li>
+            </ul>
+            <div class="d-flex justify-content-center ms-3">
+                <a class="btn custom-btn" routerLink="/login">Reserva Ahora</a>
+            </div>
+        </div>
+    </div>
+</nav>

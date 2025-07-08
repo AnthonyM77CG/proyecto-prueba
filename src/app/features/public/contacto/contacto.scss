@@ -1,0 +1,84 @@
+.contacto {
+  margin-top: 70px;
+  padding: 3rem 1rem;
+  background-color: #fefefe;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+  }
+
+  .intro {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    color: #555;
+  }
+
+  .formulario {
+    max-width: 600px;
+    margin: 0 auto;
+
+    .grupo-input {
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+
+      .form-input {
+        padding: 0.8rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: border 0.2s;
+
+        &:focus {
+          outline: none;
+        }
+
+        &.ng-valid.ng-dirty {
+          border-color: #198754;
+        }
+
+        &.ng-invalid.ng-touched,
+        &.ng-invalid.ng-dirty {
+          border-color: #dc3545;
+        }
+      }
+
+      span {
+        font-size: 0.9rem;
+        color: #dc3545;
+        padding-left: 4px;
+      }
+    }
+
+    .centrado {
+      text-align: center;
+    }
+
+    .btn {
+      background-color: #198754;
+      color: #fff;
+      padding: 0.9rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+
+      &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+
+      &:hover:not(:disabled) {
+        background-color: #1a242f;
+      }
+    }
+  }
+}

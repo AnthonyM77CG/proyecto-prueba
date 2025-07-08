@@ -1,0 +1,51 @@
+<section class="contacto">
+  <div class="contenedor">
+    <h2>Contáctanos</h2>
+    <p class="intro">¿Tienes alguna consulta? Completa el formulario y te responderemos a la brevedad.</p>
+
+    <form class="formulario" [formGroup]="formContacto">
+      <div class="grupo-input">
+        <label for="nombre">Nombre completo</label>
+        <input id="nombre" type="text" class="form-input" formControlName="nombre" />
+        @if (nombre?.invalid && nombre?.dirty || nombre?.touched){
+        @if (nombre?.hasError('required')) {
+        <span>- El campo es obligatorio*</span>
+        }
+        @if (nombre?.hasError('containNumbers')) {
+        <span>- El campo no acepta numeros*</span>
+        }
+        @if (nombre?.hasError('forbiddenSpecialChars')) {
+        <span>- El campo no acepta caracteres especiales*</span>
+        }
+        }
+      </div>
+
+      <div class="grupo-input">
+        <label for="correo">Correo electrónico</label>
+        <input id="correo" type="email" class="form-input" placeholder="correo@email.com" formControlName="correo">
+        @if(correo?.invalid && (correo?.dirty || correo?.touched)){
+        @if(correo?.hasError('required')){
+        <span>- El campo es obligatorio*</span>
+        }
+        @if(correo?.hasError('email')){
+        <span>- El campo no tiene el formato correcto*</span>
+        }
+        }
+      </div>
+
+      <div class="grupo-input">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" rows="5" class="form-input" formControlName="mensaje"></textarea>
+        @if (mensaje?.invalid && mensaje?.dirty || mensaje?.touched) {
+        @if (mensaje?.hasError('maxlength')) {
+        <span>- Maximo 200 caracteres*</span>
+        }
+        }
+      </div>
+
+      <div class="centrado">
+        <button class="btn" type="submit" [disabled]="formContacto.invalid">Enviar mensaje</button>
+      </div>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,299 @@
+@use 'variables' as var;
+
+// About Hero Section
+.about-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://picsum.photos/1920/600?random=about-bg') no-repeat center center/cover;
+  color: var.$text-light;
+  padding: 6rem 0 4rem;
+  text-align: center;
+  margin-top: 65px; // Para compensar el header fijo
+
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  p {
+    font-size: 1.3rem;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+// About Content Section
+.about-content {
+  background-color: var.$text-light;
+  padding: 4rem 0;
+
+  .content-block {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 4rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .text-content {
+      flex: 1;
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: var.$text-dark;
+      }
+      p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: #444;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .image-content {
+      flex: 1;
+      text-align: center;
+      .responsive-image {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: var.$box-shadow;
+      }
+    }
+  }
+}
+
+// Values, Mission, Vision Section
+.values-mission-vision {
+  background-color: var.$light-gray;
+  padding: 4rem 0;
+  text-align: center;
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var.$text-dark;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+
+    .pillar-item {
+      background: var.$text-light;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: var.$box-shadow;
+      text-align: left;
+      transition: transform var.$transition-speed;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: var.$primary-color;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 1rem;
+
+        li {
+          font-size: 1rem;
+          color: #444;
+          margin-bottom: 0.5rem;
+          position: relative;
+
+          &::before {
+            position: absolute;
+            left: 0;
+            color: var.$primary-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Testimonials Section
+.testimonials {
+  background-color: var.$primary-color;
+  color: var.$text-light;
+  padding: 4rem 0;
+  text-align: center;
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .testimonial-carousel {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 380px;
+      box-shadow: var.$box-shadow;
+      transition: transform var.$transition-speed;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+
+      .author {
+        font-weight: bold;
+        font-style: italic;
+        color: var.$secondary-color;
+      }
+    }
+  }
+}
+
+// Responsividad
+@media (max-width: 992px) {
+  .about-hero {
+    padding: 5rem 0 3rem;
+    h1 {
+      font-size: 2.8rem;
+    }
+    p {
+      font-size: 1.1rem;
+    }
+  }
+
+  .about-content .content-block {
+    flex-direction: column;
+    text-align: center;
+    &.reverse {
+      flex-direction: column;
+    }
+    .text-content, .image-content {
+      flex: none;
+      width: 100%;
+    }
+    .text-content h2 {
+      font-size: 2rem;
+    }
+    .text-content p {
+      font-size: 1rem;
+    }
+  }
+
+  .values-mission-vision .pillars-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .testimonials .testimonial-carousel {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 4rem 0 2.5rem;
+    margin-top: 60px;
+    h1 {
+      font-size: 2.2rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .about-content, .values-mission-vision, .testimonials {
+    padding: 3rem 0;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .about-content .content-block {
+    gap: 2rem;
+    .text-content h2 {
+      font-size: 1.8rem;
+    }
+  }
+
+  .values-mission-vision .pillar-item {
+    padding: 1.5rem;
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .testimonials .testimonial-card {
+    max-width: 300px;
+    padding: 1.5rem;
+    p {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .about-hero {
+    h1 {
+      font-size: 1.8rem;
+    }
+    p {
+      font-size: 0.9rem;
+    }
+  }
+
+  .about-content .content-block {
+    .text-content h2 {
+      font-size: 1.5rem;
+    }
+    .text-content p {
+      font-size: 0.9rem;
+    }
+  }
+
+  .values-mission-vision .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .values-mission-vision .pillar-item {
+    text-align: center;
+    ul {
+      text-align: left;
+      display: inline-block;
+    }
+  }
+}

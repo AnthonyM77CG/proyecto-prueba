@@ -1,0 +1,239 @@
+@use 'variables' as var;
+
+// Hero Section
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://picsum.photos/1920/1080?random=hero-banner') no-repeat center center/cover;
+  color: var.$text-light;
+  padding: 10rem 0 4rem;
+  text-align: center;
+  margin-top: 65px;
+
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-overlay {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+}
+
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background var.$transition-speed, transform var.$transition-speed;
+  text-align: center;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &.btn-primary {
+    background-color: var.$secondary-color;
+    color: var.$text-light;
+    margin-bottom: 2.5rem;
+
+    &:hover {
+      background-color: rgba(var.$secondary-color, 0.9);
+    }
+  }
+
+  &.btn-secondary {
+    background-color: var.$primary-color;
+    color: var.$text-light;
+
+    &:hover {
+      background-color: rgba(var.$primary-color, 0.9);
+    }
+  }
+}
+
+// Features Section
+.features {
+  background-color: var.$light-gray;
+  padding: 4rem 0;
+  text-align: center;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var.$text-dark;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+
+      .feature-item {
+        background: var.$text-light;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: var.$box-shadow;
+        transition: transform var.$transition-speed;
+
+        &:hover {
+          transform: translateY(-5px);
+        }
+
+        .icon-location,
+        .icon-service,
+        .icon-addons,
+        .icon-value {
+          font-size: 3rem;
+          margin-bottom: 1rem;
+          color: var.$primary-color;
+        }
+
+        h3 {
+          font-size: 1.5rem;
+          margin-bottom: 0.8rem;
+          color: var.$text-dark;
+        }
+
+        p {
+          font-size: 1rem;
+          color: #666;
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+}
+
+// Call to Action Section
+.call-to-action {
+  background-color: var.$primary-color;
+  color: var.$text-light;
+  padding: 4rem 0;
+  text-align: center;
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// Responsividad
+@media (max-width: 992px) {
+  .hero-content {
+    h1 {
+      font-size: 2.8rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+    margin-top: 60px;
+
+    .hero-content {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .features,
+  .call-to-action {
+    padding: 3rem 0;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .section-intro {
+    font-size: 1rem;
+  }
+
+  .feature-item {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    height: 50vh;
+  }
+
+  .hero-content {
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+
+  .btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-item {
+
+    .icon-location,
+    .icon-service,
+    .icon-addons,
+    .icon-value {
+      font-size: 2.5rem;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+    }
+  }
+}

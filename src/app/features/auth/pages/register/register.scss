@@ -1,0 +1,132 @@
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --text-color: #2b2d42;
+    --light-gray: #f8f9fa;
+    --white: #ffffff;
+    --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    --transition: 0.25s ease;
+}
+
+.auth-container {
+    min-height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-gray);
+    padding: 2rem;
+
+    .auth-card {
+        background: var(--white);
+        padding: 2.5rem 2rem;
+        border-radius: 12px;
+        box-shadow: var(--box-shadow);
+        width: 100%;
+        max-width: 420px;
+        animation: fadeIn 0.4s var(--transition);
+
+        .auth-logo-container {
+            text-align: center;
+            margin-bottom: 1.5rem;
+
+            .auth-logo {
+                width: 110px;
+                height: auto;
+                border-radius: 8px;
+            }
+        }
+
+        .auth-title {
+            color: var(--text-color);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 0.4rem;
+
+                label {
+                    font-size: 0.95rem;
+                    color: #495057;
+                }
+
+                .form-input {
+                    padding: 0.75rem;
+                    border: 1px solid #ced4da;
+                    border-radius: 6px;
+                    font-size: 1rem;
+                    transition: border-color 0.2s;
+
+                    &:focus {
+                        outline: none;
+                    }
+
+                    &.ng-valid.ng-dirty {
+                        border-color: #198754;
+                    }
+
+                    &.ng-invalid.ng-touched,
+                    &.ng-invalid.ng-dirty {
+                        border-color: #dc3545;
+                    }
+                }
+
+                span {
+                    font-size: 0.9rem;
+                    color: #dc3545;
+                    padding-left: 4px;
+                }
+            }
+
+            .auth-button {
+                background-color: #198754;
+                color: white;
+                padding: 0.75rem;
+                border: none;
+                border-radius: 8px;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background-color 0.2s;
+
+                &:hover:not(:disabled) {
+                    background-color: #146c43;
+                }
+
+                &:disabled {
+                    background-color: #ccc;
+                    cursor: not-allowed;
+                }
+            }
+        }
+
+        .auth-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+
+            .auth-link {
+                color: var(--primary-color);
+                text-decoration: none;
+                font-size: 0.9rem;
+                transition: color var(--transition);
+
+                &:hover {
+                    color: var(--secondary-color);
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
