@@ -1,35 +1,23 @@
 name: Build and Push Docker Image
-
 on:
   push:
     branches: [ main ]
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-
       - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
-
-      - name: Create Docker Hub Repository
-        run: |
-          curl -X POST -H "Content-Type: application/json" \
-          -H "Authorization: Bearer ${{ secrets.DOCKER_TOKEN }}" \
-          -d '{"name": "virellarent-web", "is_private": false}' \
-          https://hub.docker.com/v2/repositories/${{ secrets.DOCKER_USERNAME }}/virellarent-web/
-
-      - name: Build and push Docker imagen
+      - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
           context: .
           push: true
-          tags: anthonym77cg/virellarent-web:latest
+          tags: anthonym77cg/tu_imagen:latest
