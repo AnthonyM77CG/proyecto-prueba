@@ -27,7 +27,7 @@ jobs:
           -d '{"name": "virellarent-web", "is_private": false}' \
           https://hub.docker.com/v2/repositories/${{ secrets.DOCKER_USERNAME }}/virellarent-web/
 
-      - name: Build and push Docker image
+      - name: Build and push Docker imagen
         uses: docker/build-push-action@v4
         with:
           context: .
