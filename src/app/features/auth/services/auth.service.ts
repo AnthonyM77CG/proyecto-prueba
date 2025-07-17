@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { Inject, inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Token } from '../models/token';
 import { Credencial } from '../models/credencial';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { Usuario } from '../models/usuario';
 import { jwtDecode} from 'jwt-decode';
 import { DecodedRole } from '../models/decoded-role';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,19 @@ export class AuthService {
   private URL = 'http://localhost:8080/api/v1/auth';
   private router = inject(Router);
   private http = inject(HttpClient);
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.checkAuth();
+  }
+
+  private checkAuth() {
+    if (isPlatformBrowser(this.platformId)) {
+      const token = localStorage.getItem('access_token'); // Asegúrate de que 'token' sea el nombre correcto
+      this.isAuth.next(!!token);
+    } else {
+      this.isAuth.next(false); // O maneja la lógica de autenticación en el servidor
+    }
+  }
 
   private isAuth = new BehaviorSubject<boolean>(this.hasToken());
   public isAuth$ = this.isAuth.asObservable();
