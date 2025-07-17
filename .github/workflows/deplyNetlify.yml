@@ -21,7 +21,7 @@ jobs:
       run: npm install
 
     - name: Build Angular application
-      run: npm run build -- --configuration production # Asegurarse de que este script exista en package.json o usar ng build
+      run: npm run build -- --configuration production
 
     - name: Deploy to Netlify
       uses: nwtgck/actions-netlify@v2.0
